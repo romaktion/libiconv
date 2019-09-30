@@ -775,7 +775,7 @@ locale_charset (void)
 
   pdot = strrchr (current_locale, '.');
   if (pdot && 2 + strlen (pdot + 1) + 1 <= sizeof (buf))
-    sprintf_s (buf, "CP%s", pdot + 1);
+    sprintf_s (buf, sizeof (buf), "CP%s", pdot + 1);
   else
     {
       /* The Windows API has a function returning the locale's codepage as a
@@ -785,7 +785,7 @@ locale_charset (void)
         GetConsoleOutputCP() encoding if it is using a TrueType font.
         But in GUI programs and for output sent to files and pipes, GetACP()
         encoding is the best bet.  */
-      sprintf_s (buf, "CP%u", GetACP ());
+      sprintf_s (buf, sizeof (buf), "CP%u", GetACP ());
     }
   codeset = buf;
 
