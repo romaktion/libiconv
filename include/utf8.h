@@ -72,7 +72,7 @@ utf8_mbtowc (conv_t conv, ucs4_t *pwc, const unsigned char *s, size_t n)
 static int
 utf8_wctomb (conv_t conv, unsigned char *r, ucs4_t wc, size_t n) /* n == 0 is acceptable */
 {
-  unsigned count;
+  int count;
   if (wc < 0x80)
     count = 1;
   else if (wc < 0x800)

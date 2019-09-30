@@ -68,7 +68,7 @@ static int
 utf7_mbtowc (conv_t conv, ucs4_t *pwc, const unsigned char *s, size_t n)
 {
   state_t state = conv->istate;
-  unsigned count = 0; /* number of input bytes already read */
+  int count = 0; /* number of input bytes already read */
   if (state & 3)
     goto active;
   else
@@ -210,7 +210,7 @@ utf7_wctomb (conv_t conv, unsigned char *r, ucs4_t iwc, size_t n)
 {
   state_t state = conv->ostate;
   unsigned int wc = iwc;
-  unsigned count = 0;
+  int count = 0;
   if (state & 3)
     goto active;
 
