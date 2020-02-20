@@ -36,7 +36,4 @@
 *obj*
 *Debug*
 .vs
-*.sln
-*.user
-*.vcxproj*
 *.aps
